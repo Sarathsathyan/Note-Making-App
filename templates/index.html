@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+    p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+        max-height: 200px;
+}
+    </style>
+
+    {% include 'partials/_header.html' %}
+
+
+    <section>
+    {% include 'partials/_alerts.html' %}
+        <div class="container mt-5">
+            <div class="row ">
+                <script>
+                    $(function () {
+                        $("#sortable").sortable();
+                        $("#sortable").disableSelection();
+                    });
+                </script>
+                <ul id="sortable">
+                {% if datas %}
+                    {% for data in datas %}
+                    <li class="ui-state-default">
+                        <div class="col-md-3 ml-2">
+                            <div class="card" style="width: 18rem;">
+                                {#                        <img class="card-img-top" src="..." alt="Card image cap">#}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ data.heading }}</h5>
+                                    <p class="card-text">{{ data.note }}</p>
+                                    <p class="card-text">Created date: {{ data.created_date }}</p>
+                                    <a href="{% url 'more-info' data.pk %}" class="btn btn-primary">More Info</a>
+
+                                    <input type="text" value="{{ data.pk }}" hidden>
+                                    <a href="{% url 'delete' data.pk %}" class="btn btn-danger">Delete</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </li>
+                    {% endfor %}
+
+                {% else %}
+                <h3>No notes</h3>
+                    {% endif %}
+
+                </ul>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    {#    <ul id="sortable">#}
+    {#        <li class="ui-state-default">1</li>#}
+    {#        <li class="ui-state-default">2</li>#}
+    {#        <li class="ui-state-default">3</li>#}
+    {#        <li class="ui-state-default">4</li>#}
+    {#        <li class="ui-state-default">5</li>#}
+    {#        <li class="ui-state-default">6</li>#}
+    {#        <li class="ui-state-default">7</li>#}
+    {#        <li class="ui-state-default">8</li>#}
+    {#        <li class="ui-state-default">9</li>#}
+    {#        <li class="ui-state-default">10</li>#}
+    {#        <li class="ui-state-default">11</li>#}
+    {#        <li class="ui-state-default">12</li>#}
+    {#    </ul>#}
+    {##}
+    {##}
+
+
+
+
+{% endblock %}
