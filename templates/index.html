@@ -38,7 +38,7 @@
                                     <a href="{% url 'more-info' data.pk %}" class="btn btn-primary">More Info</a>
 
                                     <input type="text" value="{{ data.pk }}" hidden>
-                                    <a href="{% url 'delete' data.pk %}" class="btn btn-danger">Delete</a>
+                                    <a href="{% url 'delete' data.pk %}" class="btn btn-danger" onclick="return submitFunction();">Delete</a>
                                 </div>
 
                             </div>
@@ -78,7 +78,11 @@
     {##}
     {##}
 
-
+<script>
+function submitFunction() {
+   return confirm('Do you really want to delete the note?');
+}
+</script>
 
 
 {% endblock %}
