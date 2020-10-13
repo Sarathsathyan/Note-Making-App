@@ -1,0 +1,31 @@
+
+Steps for execute the project
+
+unzip the project
+
+
+1. Install python and django
+
+(use python 3.6.9 and django 2.2.14 )
+
+2. sudo apt install python3-django  ( for ubuntu )
+
+Install pip and virtual environment 
+
+3. sudo apt install python3-venv
+
+4. python3 -m venv myvenv
+
+5. sudo myvenv/bin/activate
+
+6. pip3 install django
+
+ Run the project
+7. python3 manage.py makemigrations
+8. python3 manage.py migrate
+9. python3 manage.py runserver
+
+
+
+
+

@@ -32,7 +32,7 @@
                             <div class="card" style="width: 18rem;">
                                 {#                        <img class="card-img-top" src="..." alt="Card image cap">#}
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ data.heading }}</h5>
+                                    <h5 class="card-title" style="font-weight: bold">{{ data.heading }}</h5>
                                     <p class="card-text">{{ data.note }}</p>
                                     <p class="card-text">Created date: {{ data.created_date }}</p>
                                     <a href="{% url 'more-info' data.pk %}" class="btn btn-primary">More Info</a>
